@@ -27,7 +27,7 @@ function QuoteDisplay({ figure, currentDate }: { figure: Figure; currentDate: Da
       
       {/* Header with figure name and dates */}
       <div className="text-center relative">
-        <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-5xl text-indigo-100 dark:text-indigo-900/30 opacity-80 font-serif select-none">"</div>
+        <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-5xl text-indigo-100 dark:text-indigo-900/30 opacity-80 font-serif select-none">&ldquo;</div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-800 dark:text-gray-100 tracking-tight">{figure.name}</h2>
         <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-light tracking-wide">{lifespan}</p>
       </div>
@@ -43,7 +43,7 @@ function QuoteDisplay({ figure, currentDate }: { figure: Figure; currentDate: Da
         </div>
         
         {/* Decorative quote mark */}
-        <div className="absolute bottom-4 right-4 text-6xl text-gray-200 dark:text-gray-700 opacity-30 font-serif transform rotate-180 select-none">"</div>
+        <div className="absolute bottom-4 right-4 text-6xl text-gray-200 dark:text-gray-700 opacity-30 font-serif transform rotate-180 select-none">&rdquo;</div>
       </div>
       
       {/* Date display with subtle styling */}
