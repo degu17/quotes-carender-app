@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
-import { Figure } from '../types/Figure';
-import { getFigureForDay } from '../data/figures';
+"use client";
 
-export default function DailyQuote() {
-  const [figure, setFigure] = useState<Figure | null>(null);
-  const currentDate = new Date();
+import { useState } from 'react';
+import { Figure } from '../types/Figure';
+
+interface DailyQuoteProps {
+  initialFigure: Figure;
+  currentDate: Date;
+}
+
+export default function DailyQuote({ initialFigure, currentDate }: DailyQuoteProps) {
+  const [figure] = useState<Figure>(initialFigure);
   
-  useEffect(() => {
-    const todaysFigure = getFigureForDay(currentDate);
-    setFigure(todaysFigure);
-  }, [currentDate]);
-  
-  if (!figure) {
-    return <div>Loading...</div>;
-  }
-  
+  return <QuoteDisplay figure={figure} currentDate={currentDate} />;
+}
+
+function QuoteDisplay({ figure, currentDate }: { figure: Figure; currentDate: Date }) {
   const birthDate = new Date(figure.birthDate).toLocaleDateString('ja-JP');
   const deathDate = figure.deathDate ? new Date(figure.deathDate).toLocaleDateString('ja-JP') : null;
   const lifespan = deathDate ? `${birthDate} - ${deathDate}` : birthDate;
